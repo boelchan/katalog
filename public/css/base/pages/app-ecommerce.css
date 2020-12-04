@@ -217,7 +217,8 @@
 
 .ecommerce-application .grid-view .ecommerce-card .item-img {
   padding-top: 0.5rem;
-  min-height: 15.85rem;
+  min-height: 12rem;
+  /* min-height: 15.85rem; */
 }
 
 .ecommerce-application .grid-view .ecommerce-card .item-wrapper {
@@ -549,7 +550,9 @@
 }
 
 @media (max-width: 575.98px) {
-  .ecommerce-application .grid-view,
+  .ecommerce-application .grid-view {
+    grid-template-columns: 1fr 1fr;
+  }
   .ecommerce-application .grid-view.wishlist-items {
     grid-template-columns: 1fr;
   }

@@ -15,7 +15,18 @@ use App\Http\Controllers\LanguageController;
 Auth::routes(['verify' => true]);
 
 // Main Page Route
-Route::get('/', 'DashboardController@dashboardEcommerce')->name('dashboard-ecommerce');
+Route::get('/', 'ProdukController@katalog')->name('produk-katalog');
+
+
+/* Route Produk */
+Route::group(['prefix' => 'produk'], function () {
+  Route::get('{id}', 'ProdukController@detail')->name('produk-list');
+  Route::get('list', 'ProdukController@list')->name('produk-list');
+  Route::get('tambah', 'ProdukController@tambah')->name('produk-tambah');
+  Route::get('edit', 'ProdukController@edit')->name('produk-edit');
+});
+/* Route Produk */
+
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
