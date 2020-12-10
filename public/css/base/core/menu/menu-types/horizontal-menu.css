@@ -49,7 +49,7 @@
   background: #fff;
   z-index: 999 !important;
   line-height: 1;
-  min-height: auto;
+  min-height: 100px;
 }
 
 .horizontal-menu .header-navbar.navbar-horizontal.floating-nav {
@@ -81,16 +81,18 @@
 }
 
 .horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-logo img {
-  max-width: 36px;
+  max-width: 300px;
+  /* max-width: 36px; */
 }
 
-.horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-text {
+.horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-text , .brand-text-min{
   color: #7367f0;
   padding-left: 1rem;
   margin-bottom: 0;
   font-weight: 600;
   letter-spacing: 0.01rem;
-  font-size: 1.45rem;
+  font-size: 2rem;
+
 }
 
 .horizontal-menu .header-navbar.navbar-horizontal .nav-link.dropdown-toggle::after {

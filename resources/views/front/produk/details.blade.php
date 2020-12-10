@@ -35,6 +35,7 @@
         </div>
         <div class="col-12 col-md-7">
           <h4>{{ $produk->nama }}</h4>
+
           <span class=""> <a href="" class="btn btn-outline-danger btn-sm">{{ $produk->kategori->nama }}</a></span>
           
           <div class="ecommerce-details-price d-flex flex-wrap mt-1">

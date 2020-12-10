@@ -11,7 +11,7 @@ return [
     'layoutWidth' => 'boxed', // options[String]: full(default) / boxed,
     'showMenu' => false, // options[Boolean]: true(default), false //show / hide main menu (Warning: if set to false it will hide the main menu)
     'bodyClass' => 'ecommerce-application', // add custom class
-    'pageHeader' => false, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
+    'pageHeader' => true, // options[Boolean]: true(default), false (Page Header for Breadcrumbs)
     'contentLayout' => '', // options[String]: default, content-left-sidebar, content-right-sidebar, content-detached-left-sidebar, content-detached-right-sidebar (warning:use this option if your whole project with sidenav Otherwise override this option as page level )
     'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
     'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)

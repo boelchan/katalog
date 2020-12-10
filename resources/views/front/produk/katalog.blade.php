@@ -1,6 +1,6 @@
 @extends('front/base/detachedLayoutMaster')
 
-@section('title', 'Katalog')
+@section('title', 'Shop')
 
 @section('vendor-style')
 <!-- Vendor css files -->
@@ -22,7 +22,7 @@
       <div class="ecommerce-header-items">
         <div class="result-toggler">
           <button class="navbar-toggler shop-sidebar-toggler" type="button" data-toggle="collapse">
-            <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
+            <span class="navbar-toggler-icon d-block d-lg-none"><i class="fas fa-sliders-h"></i></span>
           </button>
           <div class="search-results">{{ $produks->total() }} item</div>
         </div>
@@ -59,7 +59,7 @@
 <!-- background Overlay when sidebar is shown  ends-->
 
 <!-- E-commerce Search Bar Starts -->
-<section id="ecommerce-searchbar" class="ecommerce-searchbar">
+<section id="ecommerce-searchbar" class="ecommerce-searchbar hidden">
   <div class="row mt-1">
     <div class="col-sm-12">
       <div class="input-group input-group-merge">
@@ -79,16 +79,16 @@
     <div class="card ecommerce-card">
       <div class="item-img text-center">
         <a href="{{url('produk/'.$produk->id)}}">
-          <img class="img-fluid card-img-top" src="{{ asset('images/pages/eCommerce/1.png') }}" alt="img-placeholder" /></a>
+          <img class="img-fluid card-img-top" src="{{ asset('uploads/'.$produk->kategori->nama_seo.'/'.$produk->image) }}" alt="img-placeholder" /></a>
       </div>
       <div class="card-body">
         <div class="item-wrapper">
           <div>
-            <h4 class="item-price">{{ number_format($produk->harga) }}</h4>
+            <h4 class="item-price">{{ number_format($produk->harga.'000') }}</h4>
           </div>
         </div>
         <h6 class="item-name">
-          <a class="text-body" href="{{url('app/ecommerce/details')}}">{{ $produk->nama }}</a>
+          <a class="text-body" href="{{url('produk/'.$produk->id)}}">{{ $produk->nama }}</a>
         </h6>
       </div>
       <div class="item-options text-center">
@@ -118,7 +118,7 @@
           <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
           <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
           <li class="page-item next-item"><a class="page-link" href="javascript:void(0);"></a></li> --}}
-            {!! $produks->links() !!}
+           {!! $produks->withQueryString()->links() !!}
         </ul>
       </nav>
     </div>
