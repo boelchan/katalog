@@ -83,18 +83,32 @@
       </div>
       <div class="card-body">
         <div class="item-wrapper">
+          <div class="item-rating">
+            <h6 class="item-price">{{ number_format($produk->harga) }}</h6>
+          </div>
+  
           <div>
-            <h4 class="item-price">{{ number_format($produk->harga.'000') }}</h4>
+            <span class=""> <a href="{{ url('?kat='.$produk->kategori_id) }}" class="badge badge-light-danger">{{ $produk->kategori->nama }}</a></span>
           </div>
         </div>
         <h6 class="item-name">
           <a class="text-body" href="{{url('produk/'.$produk->id)}}">{{ $produk->nama }}</a>
         </h6>
+        <p class="card-text item-description mt-1">
+          {{ $produk->deskripsi }}
+        </p>
+  
       </div>
       <div class="item-options text-center">
-        <a href="https://api.whatsapp.com/send?phone=+6283834477874&text=Halo Arby.ID%0ASaya mau order *{{ $produk->nama }}*%0AApakah stok ada?" class="btn btn-success full-width">
+        <div class="item-wrapper">
+          <div class="">
+            <h4 class="item-price ">{{ number_format($produk->harga) }}</h4>
+          </div>
+        </div>
+    
+        <a href="https://api.whatsapp.com/send?phone=+6283834477874&text=Halo Arby.ID%0ASaya mau order *{{ $produk->nama }}*%0AApakah stok ada?" class="btn btn-success full-width mt-1">
           <i class="fab fa-whatsapp fa-1x"></i>
-          <span class="add-to-cart">Kirim WA</span>
+          <span class="">Kirim WA</span>
         </a>
       </div>
     </div>

@@ -5,7 +5,7 @@
       <li class="nav-item">
         <a class="navbar-brand" href="{{url('/')}}">
           <span class="brand-logo">
-            <img src="{{ asset('images/logo/logo.jpeg') }}"  height="70px" alt="">
+            <img src="{{ asset('images/logo/logo.jpeg') }}"  height="60px" alt="">
           </span>
         </a>
       </li>
@@ -20,7 +20,7 @@
             <li class="">
               <a class="mb-0 font-weight-bold brand-text-min" href="{{url('/')}}">
                 <span class="brand-logo">
-                  <img src="{{ asset('images/logo/logo.jpeg') }}"  height="70px" alt="">
+                  <img src="{{ asset('images/logo/logo.jpeg') }}"  height="60px" alt="">
                 </span>
               </a>
             </li>

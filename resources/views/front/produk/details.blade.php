@@ -27,7 +27,7 @@
         <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
           <div class="d-flex align-items-center justify-content-center">
             <img
-              src="{{ asset('images/pages/eCommerce/1.png') }}"
+              src="{{ asset('uploads/'.$produk->kategori->nama_seo.'/'.$produk->image) }}"
               class="img-fluid product-img"
               alt="product image"
             />
@@ -36,7 +36,7 @@
         <div class="col-12 col-md-7">
           <h4>{{ $produk->nama }}</h4>
 
-          <span class=""> <a href="" class="btn btn-outline-danger btn-sm">{{ $produk->kategori->nama }}</a></span>
+          <span class=""> <a href="{{ url('?kat='.$produk->kategori_id) }}" class="badge badge-light-danger">{{ $produk->kategori->nama }}</a></span>
           
           <div class="ecommerce-details-price d-flex flex-wrap mt-1">
             <h4 class="item-price mr-1">{{ number_format($produk->harga) }}</h4>
@@ -45,7 +45,7 @@
           <p class="card-text">
             {{ $produk->deskripsi }}
           </p>
-          <ul class="product-features list-unstyled">
+          <ul class="product-features list-unstyled hidden">
             <li><i data-feather="shopping-cart"></i> <span>Gratis Ongkir</span></li>
           </ul>
           <hr />
@@ -119,7 +119,7 @@
     <!-- Product Details ends -->
 
     <!-- Item features starts -->
-    <div class="item-features">
+    <div class="item-features hidden">
       <div class="row text-center">
         <div class="col-12 col-md-4 mb-4 mb-md-0">
           <div class="w-75 mx-auto">

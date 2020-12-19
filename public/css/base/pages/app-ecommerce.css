@@ -163,11 +163,11 @@
 }
 
 .ecommerce-application .ecommerce-card .item-name a {
-  font-weight: 600;
+  /* font-weight: 600;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow: hidden; */
   text-overflow: ellipsis;
 }
 
@@ -218,6 +218,7 @@
 .ecommerce-application .grid-view .ecommerce-card .item-img {
   padding-top: 0.5rem;
   min-height: 13rem;
+  
   /* min-height: 15.85rem; */
 }
 
@@ -231,6 +232,9 @@
 .ecommerce-application .grid-view .ecommerce-card .item-company,
 .ecommerce-application .grid-view .ecommerce-card .item-options .item-price {
   display: none;
+  font-size: large;
+
+  
 }
 
 .ecommerce-application .grid-view .ecommerce-card .item-options {
@@ -257,6 +261,7 @@
 
 .ecommerce-application .grid-view .ecommerce-card .item-price {
   font-weight: 600;
+  font-size: large;
 }
 
 .ecommerce-application .grid-view .ecommerce-card .card-body {
