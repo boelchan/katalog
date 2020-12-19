@@ -5,11 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use App\Models\LogPengunjung;
 
 class ProdukController extends Controller
 {
+    public function __construct()
+    {
+        $log1 = LogPengunjung::first();
+        $log1->jumlah = $log1->jumlah + 1;
+        $log1->save();
+    }
+
     public function katalog(Request $request)
     {
+
+        $logPengunjung = LogPengunjung::first();
+
         $pageConfigs = [
             'contentLayout' => "content-detached-left-sidebar",
           ];
@@ -27,9 +38,9 @@ class ProdukController extends Controller
         
 
         $kategoris = Kategori::all();
-        $produks   = Produk::where($where)->paginate(10);
+        $produks   = Produk::where($where)->paginate(12);
 
-        return view('/front/produk/katalog', compact('kategoris', 'produks', 'pageConfigs', 'breadcrumbs', 'request'));
+        return view('/front/produk/katalog', compact('kategoris', 'produks', 'pageConfigs', 'breadcrumbs', 'request', 'logPengunjung'));
     }
 
     public function detail($id='')
