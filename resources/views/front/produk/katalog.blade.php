@@ -92,7 +92,7 @@
           </div>
         </div>
         <h6 class="item-name">
-          <a class="text-body" href="{{url('produk/'.$produk->id)}}">{{ $produk->nama }}</a>
+          <a class="text-body" href="{{url('produk/'.$produk->id)}}">{{ $produk->nama }} </a>
         </h6>
         <p class="card-text item-description mt-1">
           {{ $produk->deskripsi }}
@@ -101,8 +101,8 @@
       </div>
       <div class="item-options text-center">
         <div class="item-wrapper">
-          <div class="">
-            <h4 class="item-price ">{{ number_format($produk->harga) }}</h4>
+          <div class="item-cost">
+            <h6 class="item-price ">{{ number_format($produk->harga) }}</h6>
           </div>
         </div>
     
@@ -132,7 +132,7 @@
           <li class="page-item"><a class="page-link" href="javascript:void(0);">6</a></li>
           <li class="page-item"><a class="page-link" href="javascript:void(0);">7</a></li>
           <li class="page-item next-item"><a class="page-link" href="javascript:void(0);"></a></li> --}}
-           {!! $produks->withQueryString()->links() !!}
+           {{ $produks->onEachSide(2)->withQueryString()->links() }}
         </ul>
       </nav>
     </div>

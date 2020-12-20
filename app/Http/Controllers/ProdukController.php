@@ -9,17 +9,19 @@ use App\Models\LogPengunjung;
 
 class ProdukController extends Controller
 {
+    public $logPengunjung;
     public function __construct()
     {
         $log1 = LogPengunjung::first();
         $log1->jumlah = $log1->jumlah + 1;
         $log1->save();
+        $this->logPengunjung = LogPengunjung::pluck('jumlah')->first();
+
     }
 
     public function katalog(Request $request)
     {
-
-        $logPengunjung = LogPengunjung::first();
+        $logPengunjung = $this->logPengunjung;
 
         $pageConfigs = [
             'contentLayout' => "content-detached-left-sidebar",
@@ -38,13 +40,14 @@ class ProdukController extends Controller
         
 
         $kategoris = Kategori::all();
-        $produks   = Produk::where($where)->paginate(12);
+        $produks   = Produk::where($where)->orderBy('id', 'desc')->paginate(12);
 
         return view('/front/produk/katalog', compact('kategoris', 'produks', 'pageConfigs', 'breadcrumbs', 'request', 'logPengunjung'));
     }
 
     public function detail($id='')
     {
+        $logPengunjung = $this->logPengunjung;
  
         $breadcrumbs = [
             ['link' => "/", 'name' => "Home"], ['name' => "Detail"]
@@ -53,7 +56,7 @@ class ProdukController extends Controller
         if ( $id )
         {
             $produk = Produk::find($id);
-            return view('/front/produk/details', compact('produk', 'breadcrumbs'));
+            return view('/front/produk/details', compact('produk', 'breadcrumbs', 'logPengunjung'));
         }
         else
         {

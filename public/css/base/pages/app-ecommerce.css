@@ -202,7 +202,7 @@
 
 .ecommerce-application .grid-view {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
 }
@@ -261,7 +261,7 @@
 
 .ecommerce-application .grid-view .ecommerce-card .item-price {
   font-weight: 600;
-  font-size: large;
+  font-size: medium;
 }
 
 .ecommerce-application .grid-view .ecommerce-card .card-body {
@@ -342,8 +342,10 @@
 }
 
 .ecommerce-application .list-view .ecommerce-card .item-options .item-wrapper .item-cost .item-price {
-  color: #7367f0;
+  /* color: #7367f0; */
   margin-bottom: 0;
+  font-weight: 600;
+  font-size: medium;
 }
 
 .ecommerce-application .list-view .ecommerce-card .item-options .shipping {
