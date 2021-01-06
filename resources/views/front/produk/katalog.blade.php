@@ -78,7 +78,7 @@
   @foreach($produks as $key => $produk)
     <div class="card ecommerce-card">
       <div class="item-img text-center">
-        <a href="{{url('produk/'.$produk->id)}}">
+        <a href="{{url('item/'.$produk->id)}}">
           <img class="img-fluid card-img-top" src="{{ asset('uploads/'.$produk->kategori->nama_seo.'/'.$produk->image) }}" alt="img-placeholder" /></a>
       </div>
       <div class="card-body">
@@ -92,7 +92,7 @@
           </div>
         </div>
         <h6 class="item-name">
-          <a class="text-body" href="{{url('produk/'.$produk->id)}}">{{ $produk->nama }} </a>
+          <a class="text-body" href="{{url('item/'.$produk->id)}}">{{ $produk->nama }} </a>
         </h6>
         <p class="card-text item-description mt-1">
           {{ $produk->deskripsi }}
@@ -137,6 +137,10 @@
       </nav>
     </div>
   </div>
+  <span class="col-md-12 float-md-left d-block badge badge-light-success">
+    {{ number_format($logPengunjung)}} view <span class="far fa-eye"></span>
+  </span>
+
 </section>
 <!-- E-commerce Pagination Ends -->
 @endsection

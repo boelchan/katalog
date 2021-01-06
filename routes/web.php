@@ -15,16 +15,13 @@ use App\Http\Controllers\LanguageController;
 Auth::routes(['verify' => true]);
 
 // Main Page Route
-Route::get('/', 'ProdukController@katalog')->name('produk-katalog');
+Route::get('/', 'Front\ProdukController@katalog')->name('produk-katalog');
+Route::get('item/{id}', 'Front\ProdukController@detail')->name('produk-detail');
 
 
 /* Route Produk */
-Route::group(['prefix' => 'produk'], function () {
-  Route::get('{id}', 'ProdukController@detail')->name('produk-list');
-  Route::get('list', 'ProdukController@list')->name('produk-list');
-  Route::get('tambah', 'ProdukController@tambah')->name('produk-tambah');
-  Route::get('edit', 'ProdukController@edit')->name('produk-edit');
-});
+Route::get('produk/', 'Admin\ProdukController@index')->name('produk-index');
+Route::resource('produk', \Admin\ProdukController::class);
 /* Route Produk */
 
 

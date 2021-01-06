@@ -1,34 +1,36 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Front;
 
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\LogPengunjung;
+use App\Http\Controllers\Controller;
 
 class ProdukController extends Controller
 {
-    public $logPengunjung;
     public function __construct()
     {
         $log1 = LogPengunjung::first();
         $log1->jumlah = $log1->jumlah + 1;
         $log1->save();
-        $this->logPengunjung = LogPengunjung::pluck('jumlah')->first();
 
     }
 
     public function katalog(Request $request)
     {
-        $logPengunjung = $this->logPengunjung;
-
         $pageConfigs = [
+            'bodyClass' => 'ecommerce-application',
+            'showMenu' => false,
             'contentLayout' => "content-detached-left-sidebar",
           ];
-          $breadcrumbs = [
+
+        $logPengunjung = LogPengunjung::pluck('jumlah')->first();
+
+        $breadcrumbs = [
             ['name' => "Home"]
-          ];
+        ];
 
         $filter_kategori =  $request->post('kat');
         
@@ -47,8 +49,12 @@ class ProdukController extends Controller
 
     public function detail($id='')
     {
-        $logPengunjung = $this->logPengunjung;
- 
+        $pageConfigs = [
+            'bodyClass' => 'ecommerce-application',
+            'showMenu' => false,
+            // 'contentLayout' => "content-detached-left-sidebar",
+          ];
+
         $breadcrumbs = [
             ['link' => "/", 'name' => "Home"], ['name' => "Detail"]
           ];
@@ -56,11 +62,25 @@ class ProdukController extends Controller
         if ( $id )
         {
             $produk = Produk::find($id);
-            return view('/front/produk/details', compact('produk', 'breadcrumbs', 'logPengunjung'));
+            return view('/front/produk/details', compact('produk', 'breadcrumbs'));
         }
         else
         {
             return redirect('/');
         }
+    }
+
+    public function list()
+    {
+        $produks   = Produk::orderBy('id', 'desc')->paginate(10);
+
+        return view('admin/list', compact('produks'));
+    }
+
+
+    public function edit($id='')
+    {
+
+        return view('admin/list');
     }
 }

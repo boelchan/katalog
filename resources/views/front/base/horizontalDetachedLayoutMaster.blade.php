@@ -9,10 +9,12 @@
 
   <!-- BEGIN: Header-->
   {{-- Include Navbar --}}
-  @include('panels.navbar')
+  @include('front.base.navbar')
 
   {{-- Include Sidebar --}}
-  {{-- @include('panels.horizontalMenu') --}}
+  @if((isset($configData['showMenu']) && $configData['showMenu'] === true))
+  @include('panels.horizontalMenu')
+  @endif
 
   <!-- BEGIN: Content-->
   <div class="app-content content {{ $configData['pageClass'] }}">

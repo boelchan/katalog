@@ -21,6 +21,13 @@ class Produk extends Model
      */
     protected $primaryKey = 'id';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['image', 'kategori_id', 'nama', 'deskripsi','harga', 'tampil'];
+
     public function kategori()
     {
         return $this->belongsTo('App\Models\Kategori');
